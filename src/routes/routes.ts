@@ -1,6 +1,6 @@
-import Home from '../components/home';
+import Home from '../components/Home';
 //import { Categories } from '../components/home';
-import Article from '../components/article';
+import Article from '../components/Article';
 
 type RouteHandler = () => string;
 
