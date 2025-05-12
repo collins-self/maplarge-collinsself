@@ -1,12 +1,12 @@
 import Home from '@components/Home';
-//import Categories from '@components/Categories';
+import CategorizedArticleList from '@components/CategorizedArticleList';
 import Article from '@components/Article';
 
 type RouteHandler = () => string;
 
 const routes: Record<string, RouteHandler> = {
     '/': Home,
-    //    '/categories': Categories,
+    '/categories': CategorizedArticleList,
     '/article': Article
 }
 
