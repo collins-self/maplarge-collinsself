@@ -9,7 +9,22 @@ import NewsCard from "./NewsCard";
 
 const CategorizedArticleList = (categoryFilter: string): HTMLElement => {
     const container = document.createElement('div');
+    const parseDate = (date: string): string => {
+        try {
+            const d = new Date(date);
+            if (isNaN(d.getTime())) throw new Error("Invalid date");
+            return d.toLocaleDateString(undefined, {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+            });
+        } catch {
+            return "Invalid date";
+        }
+    }
+
     container.innerHTML = `<h2 class="mb-4">Loading ${categoryFilter} articles...</h2>`;
+
     fetch('/news_feed.json')
         .then(res => res.json())
         .then((data: ArticleFeed) => {
@@ -17,14 +32,14 @@ const CategorizedArticleList = (categoryFilter: string): HTMLElement => {
                 return entry.category === categoryFilter;
             });
             if (filteredArticles.length === 0) container.innerHTML = `
-                <h2 class="mb-4">No articles found in ${categoryFilter}</h2>
+                <h2 class="m-3">No articles found in ${categoryFilter}</h2>
             `
             const cards = filteredArticles.map((a) => {
                 return `
                 <div class="col">
                     ${NewsCard({
                     title: a.title,
-                    date: a.datePosted,
+                    date: parseDate(a.date_posted),
                     shortDescription: a.excerpt,
                     imageLink: a.image,
                     author: a.author,

@@ -16,7 +16,7 @@ const NewsCard = (props: NewsCardProps) => {
     const imageColumn = props.imageLink
         ? `<div class="col-md-4">
                 <img src="${props.imageLink}"
-                     class="img-fluid rounded-start"
+                     class="w-100 rounded-start"
                      style="object-fit: cover; height: 200px;"
                      onerror="this.parentElement?.remove()">
            </div>`
@@ -25,12 +25,12 @@ const NewsCard = (props: NewsCardProps) => {
 
     return (`
         <a href='/article/${props.id}' class='text-decoration-none'>
-        <div class="card mx-3">
+        <div class="card mx-3" style="height: 200px">
             <div class="row g-0">
                 ${imageColumn}
-                <div class="col-md-8">
+                <div class="col-md">
                     <div class="card-body">
-                        <h5 class="card-title">${title} | ${props.author}</h5>
+                        <h4 class="card-title">${title} | ${props.author}</h5>
                         <p class="card-text"><small class="text-body-secondary">${props.date}</small></p>
                         <p class="card-text">${props.shortDescription}</p>
                     </div>

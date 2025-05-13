@@ -14,9 +14,9 @@ export interface Article {
     category: string,
     title: string,
     excerpt: string,
-    fullArticle: string,
+    full_article: string,
     image: string,
-    datePosted: string,
+    date_posted: string,
     author: string,
     source: string,
     tags: string[]
