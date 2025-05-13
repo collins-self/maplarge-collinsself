@@ -18,14 +18,17 @@ const NewsCard = (props: NewsCardProps) => {
         <div class="card mx-3">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="${props.imageLink}" class="img-fluid rounded-start" style="object-fit: cover; height: 200px">
+                    <img src="${props.imageLink}" 
+                         class="img-fluid rounded-start" 
+                         style="object-fit: cover; height: 200px;" 
+                         onerror="this.onerror=null;this.src='/images/fallback.png'; this.style.objectFit='cover';">
                 </div>
                 <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">${props.title} | ${props.author}</h5>
-                    <p class="card-text">${props.shortDescription}</p>
-                    <p class="card-text"><small class="text-body-secondary">${props.date}</small></p>
-                </div>
+                    <div class="card-body">
+                        <h5 class="card-title">${props.title} | ${props.author}</h5>
+                        <p class="card-text">${props.shortDescription}</p>
+                        <p class="card-text"><small class="text-body-secondary">${props.date}</small></p>
+                    </div>
                 </div>
             </div>
         </div>
