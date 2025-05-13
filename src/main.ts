@@ -48,9 +48,21 @@ const initializeLayout = (): { mainContent: HTMLElement } => {
 };
 
 const renderRoute = (path: string, target: HTMLElement) => {
+    const existingSidebar = document.getElementById('sidebar');
+    if (existingSidebar) {
+        existingSidebar.replaceWith(Sidebar()); // re-renders with new category highlighted
+    }
+
+    target.innerHTML = '';
+
+    if (path.startsWith('/category/')) {
+        const slug = decodeURIComponent(path.split('/')[2] ?? '');
+        renderComponent(target, CategorizedArticleList(slug));
+        return;
+    }
+
     const component = routes[path] || (() => "<h1>Error 404</h1><h3>No such route.</h3>");
     const result = component();
-    target.innerHTML = '';
     renderComponent(target, result);
 };
 

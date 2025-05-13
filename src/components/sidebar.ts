@@ -8,12 +8,11 @@ import type { ArticleFeed, Article } from 'types/article';
 
 const Sidebar = (): HTMLElement => {
     const container = document.createElement('div');
+    container.id = 'sidebar';
     container.innerHTML = `
         <nav class="nav flex-column bg-body-tertiary h-100">
             <div class="mt-3 ms-3 me-5 mb-2">
-                <a class="nav-link fw-bold text-body" href='/categories'>
                     <h3>Categories</h3>
-                </a>
                 <nav class="nav flex-column ms-3" id="category-links">
                     <p class="text-muted">Loading...</p>
                 </nav>
@@ -33,13 +32,13 @@ const Sidebar = (): HTMLElement => {
 
             const pathParts = location.pathname.split('/');
             let currentCategory = '';
-            if (pathParts[1] === 'categories' && pathParts.length > 2) {
+            if (pathParts[1] === 'category' && pathParts.length > 2) {
                 currentCategory = decodeURIComponent(pathParts[2]);
             }
             const categoriesHTML = Array.from(categories).map((category: string) => {
                 return currentCategory === category
-                    ? `<a class="nav-link text-body h2 fw-bold" href="/categories/${category}">${category}</a>`
-                    : `<a class="nav-link text-body h2" href="/categories/${category}">${category}</a>`
+                    ? `<a class="nav-link text-body h2 fw-bold" href="/category/${encodeURIComponent(category)}">${category}</a>`
+                    : `<a class="nav-link text-body h2" href="/category/${encodeURIComponent(category)}">${category}</a>`
             }).join('\n');
 
             categoryContainer.innerHTML = categoriesHTML;
