@@ -1,7 +1,7 @@
 /**
  * News Card
  *
- * displays a news article based on ID
+ * displays a news article
  */
 interface NewsCardProps {
     title: string,
@@ -13,21 +13,26 @@ interface NewsCardProps {
 }
 
 const NewsCard = (props: NewsCardProps) => {
+    const imageColumn = props.imageLink
+        ? `<div class="col-md-4">
+                <img src="${props.imageLink}"
+                     class="img-fluid rounded-start"
+                     style="object-fit: cover; height: 200px;"
+                     onerror="this.parentElement?.remove()">
+           </div>`
+        : '';
+    const title = props.title.endsWith('.') ? props.title.slice(0, -1) : props.title.slice;
+
     return (`
         <a href='/article/${props.id}' class='text-decoration-none'>
         <div class="card mx-3">
             <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="${props.imageLink}" 
-                         class="img-fluid rounded-start" 
-                         style="object-fit: cover; height: 200px;"
-                         onerror="this.remove()">
-                </div>
+                ${imageColumn}
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">${props.title} | ${props.author}</h5>
-                        <p class="card-text">${props.shortDescription}</p>
+                        <h5 class="card-title">${title} | ${props.author}</h5>
                         <p class="card-text"><small class="text-body-secondary">${props.date}</small></p>
+                        <p class="card-text">${props.shortDescription}</p>
                     </div>
                 </div>
             </div>
