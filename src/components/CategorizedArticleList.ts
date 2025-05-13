@@ -20,18 +20,21 @@ const CategorizedArticleList = (categoryFilter: string): HTMLElement => {
                 <h2 class="mb-4">No articles found in ${categoryFilter}</h2>
             `
             const cards = filteredArticles.map((a) => {
-                return NewsCard({
+                return `
+                <div class="col">
+                    ${NewsCard({
                     title: a.title,
                     date: a.datePosted,
                     shortDescription: a.excerpt,
                     imageLink: a.image,
                     author: a.author,
-                })
+                    id: a.id
+                })}</div>`
             }).join('');
 
             container.innerHTML = `
-                <h2 class="mb-4 text-capitalize">${categoryFilter}</h2>
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <h2 class="m-3 text-capitalize">${categoryFilter}</h2>
+                <div class="row row-cols-1 g-4">
                     ${cards}
                 </div>
             `;

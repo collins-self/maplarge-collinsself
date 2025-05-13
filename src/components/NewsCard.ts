@@ -2,27 +2,23 @@
  * News Card
  *
  * displays a news article based on ID
- *  Title
-● Date (formatted MM/DD/YYYY)
-● Short description or summary
-● Image (if available)
-● Clicking on a card should also take the user to the full article page.
-
  */
 interface NewsCardProps {
     title: string,
     date: string,
     shortDescription: string,
     imageLink: string,
-    author: string
+    author: string,
+    id: number
 }
 
 const NewsCard = (props: NewsCardProps) => {
     return (`
-        <div class="card mb-3">
+        <a href='/article/${props.id}' class='text-decoration-none'>
+        <div class="card mx-3">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="${props.imageLink}" class="img-fluid rounded-start">
+                    <img src="${props.imageLink}" class="img-fluid rounded-start" style="object-fit: cover; height: 200px">
                 </div>
                 <div class="col-md-8">
                 <div class="card-body">
@@ -33,6 +29,7 @@ const NewsCard = (props: NewsCardProps) => {
                 </div>
             </div>
         </div>
+        </a>
     `);
 }
 
