@@ -11,6 +11,7 @@ import routes from '@routes/routes';
 import Sidebar from "@components/Sidebar";
 import Banner from '@components/Banner';
 import CategorizedArticleList from '@components/CategorizedArticleList';
+import ArticlePage from '@components/ArticlePage';
 
 const page = document.getElementById('app');
 
@@ -58,6 +59,12 @@ const renderRoute = (path: string, target: HTMLElement) => {
     if (path.startsWith('/category/')) {
         const slug = decodeURIComponent(path.split('/')[2] ?? '');
         renderComponent(target, CategorizedArticleList(slug));
+        return;
+    }
+
+    if (path.startsWith('/article/')) {
+        const slug = path.split('/')[2] ?? '';
+        renderComponent(target, ArticlePage(slug));
         return;
     }
 

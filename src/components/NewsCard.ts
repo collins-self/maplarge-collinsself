@@ -20,8 +20,8 @@ const NewsCard = (props: NewsCardProps) => {
                 <div class="col-md-4">
                     <img src="${props.imageLink}" 
                          class="img-fluid rounded-start" 
-                         style="object-fit: cover; height: 200px;" 
-                         onerror="this.onerror=null;this.src='/images/fallback.png'; this.style.objectFit='cover';">
+                         style="object-fit: cover; height: 200px;"
+                         onerror="this.remove()">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
