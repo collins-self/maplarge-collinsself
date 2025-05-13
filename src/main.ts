@@ -33,7 +33,7 @@ const initializeLayout = (): { mainContent: HTMLElement } => {
     // Main Sidebar
     const layoutContainer = document.createElement('div');
     layoutContainer.style.display = 'flex';
-    layoutContainer.style.height = '100vh';
+    layoutContainer.style.minHeight = '100vh';
     renderComponent(layoutContainer, Sidebar());
 
     // Main Content
