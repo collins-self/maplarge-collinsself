@@ -7,7 +7,7 @@
  */
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
-import routes from '@routes/routes';
+import matchRoutes from '@routes/routes';
 import Sidebar from "@components/Sidebar";
 import Banner from '@components/Banner';
 import CategorizedArticleList from '@components/CategorizedArticleList';
@@ -55,21 +55,8 @@ const renderRoute = (path: string, target: HTMLElement) => {
     }
 
     target.innerHTML = '';
-
-    if (path.startsWith('/category/')) {
-        const slug = decodeURIComponent(path.split('/')[2] ?? '');
-        renderComponent(target, CategorizedArticleList(slug));
-        return;
-    }
-
-    if (path.startsWith('/article/')) {
-        const slug = path.split('/')[2] ?? '';
-        renderComponent(target, ArticlePage(slug));
-        return;
-    }
-
-    const component = routes[path] || (() => "<h1>Error 404</h1><h3>No such route.</h3>");
-    const result = component();
+    const component = matchRoutes(path);
+    const result = component;
     renderComponent(target, result);
 };
 
