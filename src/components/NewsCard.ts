@@ -25,7 +25,7 @@ const NewsCard = (props: NewsCardProps) => {
 
     return (`
         <a href='/article/${props.id}' class='text-decoration-none'>
-        <div class="card mx-3" style="height: 200px">
+        <div class="card mx-3">
             <div class="row g-0">
                 ${imageColumn}
                 <div class="col-md">

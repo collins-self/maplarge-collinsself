@@ -38,7 +38,7 @@ const initializeLayout = (): { mainContent: HTMLElement } => {
 
     // Main Content
     const mainContent = document.createElement('main');
-    mainContent.className = 'flex-1 p-1';
+    mainContent.className = 'flex-1 p-1 pb-5';
     mainContent.id = 'root';
     renderComponent(layoutContainer, mainContent);
 
