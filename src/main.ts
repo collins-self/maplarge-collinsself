@@ -30,8 +30,8 @@ const initializeLayout = (): { mainContent: HTMLElement } => {
 
     // Main Sidebar
     const layoutContainer = document.createElement('div');
-    layoutContainer.style.display = 'flex';
     layoutContainer.style.minHeight = '100vh';
+    layoutContainer.className = 'd-flex flex-column flex-md-row';
     renderComponent(layoutContainer, Sidebar());
 
     // Main Content

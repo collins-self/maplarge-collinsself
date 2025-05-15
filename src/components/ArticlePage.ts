@@ -21,7 +21,7 @@ const ArticlePage = (id: string): HTMLElement => {
                         <img src=${article.image}
                             class="rounded-start col-md-8"
                             style="max-height: 20rem; max-width: 100%; object-fit: cover"
-                            onerror="this.parentElement?.remove()">
+                            onerror="this.remove()">
                         <div class="col-md-4">
                             <p>${article.excerpt}</p>
                             <p>${new Date(article.date_posted).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })} – ${article.author}</p>
