@@ -11,8 +11,8 @@ const Sidebar = (): HTMLElement => {
     container.id = 'sidebar';
     container.innerHTML = `
         <nav class="nav flex-column bg-body-tertiary h-100 p-2">
-            <div class="mt-3 ms-3 me-5 mb-2">
-                    <h3>Categories</h3>
+            <div class="mt-3 ms-3 me-5">
+                    <h3 class="mb-3">Categories</h3>
                 <nav class="nav flex-column ms-3" id="category-links">
                     <p class="text-muted">Loading...</p>
                 </nav>
@@ -36,9 +36,7 @@ const Sidebar = (): HTMLElement => {
                 currentCategory = decodeURIComponent(pathParts[2]);
             }
             const categoriesHTML = Array.from(categories).map((category: string) => {
-                return currentCategory === category
-                    ? `<a class="nav-link text-body h2 fw-bold" href="/category/${encodeURIComponent(category)}">${category}</a>`
-                    : `<a class="nav-link text-body h2" href="/category/${encodeURIComponent(category)}">${category}</a>`
+                return `<a class="nav-link fs-5 h2 py-2 ${currentCategory === category ? `fw-bold` : ``}" href="/category/${encodeURIComponent(category)}">${category}</a>`
             }).join('\n');
 
             categoryContainer.innerHTML = categoriesHTML;
