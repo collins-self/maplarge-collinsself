@@ -10,8 +10,6 @@ import 'bootstrap';
 import matchRoutes from '@routes/routes';
 import Sidebar from "@components/Sidebar";
 import Banner from '@components/Banner';
-import CategorizedArticleList from '@components/CategorizedArticleList';
-import ArticlePage from '@components/ArticlePage';
 
 const page = document.getElementById('app');
 

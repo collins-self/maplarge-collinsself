@@ -10,7 +10,7 @@ const Sidebar = (): HTMLElement => {
     const container = document.createElement('div');
     container.id = 'sidebar';
     container.innerHTML = `
-        <nav class="nav flex-column bg-body-tertiary h-100">
+        <nav class="nav flex-column bg-body-tertiary h-100 p-2">
             <div class="mt-3 ms-3 me-5 mb-2">
                     <h3>Categories</h3>
                 <nav class="nav flex-column ms-3" id="category-links">
