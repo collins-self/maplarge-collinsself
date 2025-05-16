@@ -1,7 +1,7 @@
 
 # Maplarge Application Collins Self SPA
 
-This is a single-page application (SPA) built with Vanilla TypeScript and Vite for building, designed to render article data from a local JSON file and support dynamic routing and sorting. It uses vanilla Typescript with modular components, Bootstrap for styling, and a custom router implementation.
+This is a single-page application (SPA) built with Vanilla TypeScript and Vite for building, designed to render article data from a local JSON file and support dynamic routing and sorting. It uses vanilla Typescript with modular components, Bootstrap for styling, and a custom router implementation. Thank you so much for your consideration.
 
 ## 🚀 Getting Started
 
