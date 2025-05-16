@@ -48,7 +48,7 @@ const initializeLayout = (): { mainContent: HTMLElement } => {
 
 const renderRoute = (path: string, target: HTMLElement) => {
     const existingSidebar = document.getElementById('sidebar');
-    if (existingSidebar) {
+    if (existingSidebar && !path.includes('article')) {
         existingSidebar.replaceWith(Sidebar()); // re-renders with new category highlighted
     }
 

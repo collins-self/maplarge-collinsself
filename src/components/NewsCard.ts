@@ -9,7 +9,8 @@ interface NewsCardProps {
     shortDescription: string,
     imageLink: string,
     author: string,
-    id: number
+    id: number,
+    category?: string
 }
 
 const NewsCard = (props: NewsCardProps) => {
@@ -21,15 +22,17 @@ const NewsCard = (props: NewsCardProps) => {
                      onerror="this.parentElement?.remove()">
            </div>`
         : '';
+    const category = props.category != null ? `<h6 class="mb-3 text-uppercase text-danger" > ${props.category} </h6>` : '';
     const title = props.title.endsWith('.') ? props.title.slice(0, -1) : props.title.slice;
 
     return (`
         <a href='/article/${props.id}' class='text-decoration-none'>
-        <div class="card mx-3">
+        <div class="card mx-3" style="height: 200px">
             <div class="row g-0">
                 ${imageColumn}
                 <div class="col-md">
                     <div class="card-body">
+                        ${category}
                         <h4 class="card-title">${title} | ${props.author}</h5>
                         <p class="card-text"><small class="text-body-secondary">${props.date}</small></p>
                         <p class="card-text">${props.shortDescription}</p>
